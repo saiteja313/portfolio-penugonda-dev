@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          submodules: true  # This fetches the theme folder
+          fetch-depth: 0    # Ensures all history is fetched
 
       - name: Install Zola
         run: |
