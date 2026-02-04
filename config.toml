@@ -1,0 +1,28 @@
+# The URL the site will be built for
+base_url = "https://www.yella.dev"
+description = "Personal site of Sai Teja Penugonda — Senior Cloud Engineer."
+theme = "oceanic-zen"
+
+[search]
+index_format = "fuse_javascript" # or "fuse_json"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+# Whether to generate a feed for the site
+generate_feeds = true
+feed_filenames = ["rss.xml"]
+
+[markdown]
+
+[markdown.highlighting]
+light_theme = "github-light"
+dark_theme = "github-dark"
+
+[extra]
+# Put all your custom variables here
+author = "Sai Teja Penugonda"
+social_image = "./images/1579699755133.jpeg"
