@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
+          fetch-depth: 0
 
       - name: Install Zola
         run: |
@@ -27,7 +28,10 @@ jobs:
           sudo mv zola /usr/local/bin/zola
 
       - name: Build site
-        run: zola build
+        run: | 
+          pwd
+          ls -F
+          zola build
 
       # This is the "Bridge" step you were missing
       - name: Upload artifact
