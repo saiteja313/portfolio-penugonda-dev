@@ -43,7 +43,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to gh-pages branch
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
