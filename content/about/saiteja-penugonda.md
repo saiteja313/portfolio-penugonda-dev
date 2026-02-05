@@ -1,6 +1,7 @@
 +++
 title = "About"
 weight = 1
+date = 2026-02-04
 +++
 
 Hi, I am Sai Teja. I am currently working as a Senior Cloud Engineer. I have more than a decade of experience in Site Reliability Engineering, DevOps, Operations, Troubleshooting.
