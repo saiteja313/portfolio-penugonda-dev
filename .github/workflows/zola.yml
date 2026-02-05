@@ -14,30 +14,34 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          submodules: true  # This fetches the theme folder
-          # fetch-depth: 0    # Ensures all history is fetched
+          submodules: true
 
       - name: Install Zola
         run: |
           ZOLA_VERSION=$(curl -s https://api.github.com/repos/getzola/zola/releases/latest | jq -r .tag_name)
-          curl -sL https://github.com/getzola/zola/releases/download/${ZOLA_VERSION}/zola-${ZOLA_VERSION}-x86_64-unknown-linux-musl.tar.gz | tar xz
+          curl -sL "https://github.com/getzola/zola/releases/download/${ZOLA_VERSION}/zola-${ZOLA_VERSION}-x86_64-unknown-linux-musl.tar.gz" | tar xz
           sudo mv zola /usr/local/bin/zola
-
-      - name: Debug - View Blog Index Content
-        run: |
-          echo "Checking content of content/blog/_index.md:"
-          cat /home/runner/work/portfolio-penugonda-dev/portfolio-penugonda-dev/content/blog/_index.md
 
       - name: Build site
         run: zola build
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+      # This is the "Bridge" step you were missing
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
