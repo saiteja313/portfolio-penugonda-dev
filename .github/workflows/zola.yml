@@ -48,3 +48,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
+
+      - name: Debug - List public folder
+        run: |
+          echo "Listing contents of public folder:"
+          ls -R public || echo "Public folder is EMPTY!"

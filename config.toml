@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://www.yella.dev"
+base_url = "https://www.penugonda.dev"
 description = "Personal site of Sai Teja Penugonda — Senior Cloud Engineer."
 theme = "oceanic-zen"
 
