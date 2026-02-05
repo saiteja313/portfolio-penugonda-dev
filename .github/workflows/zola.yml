@@ -5,14 +5,11 @@ on:
     branches:
       - main
 
-
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: write  # Essential for pushing to the gh-pages branch
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -28,45 +25,11 @@ jobs:
           sudo mv zola /usr/local/bin/zola
 
       - name: Build site
-        run: | 
-          pwd
-          ls -F
-          zola build
+        run: zola build
 
-      - name: Verify Output
-        run: |
-          if [ -d "public" ]; then
-            echo "Found public folder"
-            ls -R public
-          elif [ -d "docs" ]; then
-            echo "Found docs folder"
-            ls -R docs
-          else
-            echo "Neither public nor docs found! Searching..."
-            find . -maxdepth 2 -type d
-          fi
-
-      # This is the "Bridge" step you were missing
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-
-      - name: Debug - List public folder
-        run: |
-          echo "Listing contents of public folder:"
-          ls -R public || echo "Public folder is EMPTY!"
