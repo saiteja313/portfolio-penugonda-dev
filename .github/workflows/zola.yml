@@ -33,6 +33,19 @@ jobs:
           ls -F
           zola build
 
+      - name: Verify Output
+        run: |
+          if [ -d "public" ]; then
+            echo "Found public folder"
+            ls -R public
+          elif [ -d "docs" ]; then
+            echo "Found docs folder"
+            ls -R docs
+          else
+            echo "Neither public nor docs found! Searching..."
+            find . -maxdepth 2 -type d
+          fi
+
       # This is the "Bridge" step you were missing
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
