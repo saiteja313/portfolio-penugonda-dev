@@ -199,12 +199,23 @@
         }
         
         .hero-image img {
-            width: 100%;
-            max-width: 400px;
+            width: 369px;
+            height: 369px;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             border: 4px solid rgba(255, 255, 255, 0.2);
             object-fit: cover;
+            image-rendering: auto;
+            image-rendering: -webkit-optimize-contrast;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-image img {
+                width: 300px;
+                height: 300px;
+            }
         }
         
         section {
@@ -524,10 +535,6 @@
                 order: -1;
             }
             
-            .hero-image img {
-                max-width: 300px;
-            }
-            
             .cta-buttons {
                 flex-direction: column;
             }
@@ -562,7 +569,7 @@
                 <h1>Sai Teja Penugonda</h1>
                 <p class="subtitle">Senior Cloud Engineer at <span class="highlight">Amazon Web Services</span></p>
                 <p style="color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; margin-bottom: 1rem;">
-                    Subject Matter Expert in Amazon EKS & EKS Anywhere | AWS Re:Invent 2025 Presenter
+                    Subject Matter Expert in Amazon EKS & EKS Anywhere | Developed Workshop Content for AWS Re:Invent 2025
                 </p>
                 
                 <div class="cert-badges">
@@ -579,7 +586,10 @@
             
             <div class="hero-image">
                 <!-- PHOTO: Place your image file as images/1579699755133.jpeg or update the path below -->
-                <img src="./images/1579699755133.jpeg" alt="Sai Teja Penugonda - Senior Cloud Engineer" 
+                <img src="./images/1579699755133.jpeg" 
+                     alt="Sai Teja Penugonda - Senior Cloud Engineer"
+                     loading="eager"
+                     decoding="sync"
                      onerror="this.src='https://ui-avatars.com/api/?name=Sai+Teja+Penugonda&size=400&background=667eea&color=fff&bold=true'">
             </div>
         </div>
@@ -738,7 +748,7 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>AWS Re:Invent 2025 Workshop</h3>
-                        <div class="stars">🎤 Conference Presenter</div>
+                        <div class="stars">🎯 Content Developer</div>
                     </div>
                     <div class="project-body">
                         <p>Developed 12 EKS and ECS troubleshooting scenarios for the AWS Support workshop "Troubleshooting in the cloud with Kiro CLI" presented at AWS Re:Invent 2025.</p>
@@ -866,7 +876,7 @@
             </div>
             
             <p style="margin-top: 2rem; font-size: 1.1rem;">
-                <strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#5221333b2637383361636112353f333b3e7c313d3f" style="color: var(--accent); text-decoration: none;"><span class="__cf_email__" data-cfemail="2754464e53424d4614161467404a464e4b0944484a">[email&#160;protected]</span></a>
+                <strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#9deefcf4e9f8f7fcaeacaeddfaf0fcf4f1b3fef2f0" style="color: var(--accent); text-decoration: none;"><span class="__cf_email__" data-cfemail="ff8c9e968b9a959eccceccbf98929e9693d19c9092">[email&#160;protected]</span></a>
             </p>
         </div>
     </section>
