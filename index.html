@@ -499,18 +499,25 @@
         }
         
         .social-links a {
-            color: white;
+            color: var(--secondary);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid var(--border);
         }
         
         .social-links a:hover {
-            color: var(--primary);
+            color: white;
+            background: var(--primary);
+            border-color: var(--primary);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
         }
         
         footer {
@@ -898,7 +905,7 @@
         <p style="margin-top: 1rem; opacity: 0.7;">Senior Cloud Engineer | AWS Subject Matter Expert | Kubernetes Specialist</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1018,7 +1025,4 @@
                 
                 <div class="blog-card" onclick="window.open('https://medium.com/@saiteja313', '_blank')">
                     <div class="blog-category">Amazon EKS</div>
-                    <div class="blog-content">
-                        <h3>Tracing Amazon EKS Audit Logs</h3>
-                        <p>Deep dive into EKS audit logging for security and compliance monitoring with practical examples.</p>
-                        <a href="https:/
+                    <div class="b
