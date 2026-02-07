@@ -849,7 +849,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Latest Articles</h2>
-                <p>✨ Auto-fetched from Medium - Deep dives into Kubernetes, AWS, and cloud technologies</p>
+                <p>Deep dives into Kubernetes, AWS, and cloud technologies • <a href="https://saiteja313.medium.com/" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">View all on Medium →</a></p>
             </div>
             
             <div class="blog-grid" id="blog-container">
@@ -895,7 +895,7 @@
             </div>
             
             <p style="margin-top: 2rem; font-size: 1.1rem;">
-                <strong>Email:</strong> <a href="mailto:saiteja313@gmail.com" style="color: var(--accent); text-decoration: none;">saiteja313@gmail.com</a>
+                <strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#ef9c8e869b8a858edcdedcaf88828e8683c18c8082" style="color: var(--accent); text-decoration: none;"><span class="__cf_email__" data-cfemail="ea998b839e8f808bd9dbd9aa8d878b8386c4898587">[email&#160;protected]</span></a>
             </p>
         </div>
     </section>
@@ -905,7 +905,7 @@
         <p style="margin-top: 1rem; opacity: 0.7;">Senior Cloud Engineer | AWS Subject Matter Expert | Kubernetes Specialist</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -922,11 +922,19 @@
         async function fetchMediumPosts() {
             const container = document.getElementById('blog-container');
             
+            // Set a timeout for the fetch
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+            
             try {
-                const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@saiteja313');
+                const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@saiteja313', {
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId);
+                
                 const data = await response.json();
                 
-                if (data.status === 'ok' && data.items) {
+                if (data.status === 'ok' && data.items && data.items.length > 0) {
                     container.innerHTML = '';
                     const posts = data.items.slice(0, 6);
                     
@@ -935,10 +943,11 @@
                         container.appendChild(card);
                     });
                 } else {
-                    throw new Error('Failed to fetch posts');
+                    throw new Error('No posts returned from API');
                 }
             } catch (error) {
-                console.error('Error fetching Medium posts:', error);
+                clearTimeout(timeoutId);
+                console.log('Using fallback blog content:', error.message);
                 container.innerHTML = getFallbackBlogContent();
             }
         }
@@ -1020,9 +1029,4 @@
                         <h3>Debugging HTTP Headers from ALB to Kubernetes Pods</h3>
                         <p>Tracing and debugging HTTP headers sent to Kubernetes pods from Layer 7 Application Load Balancer.</p>
                         <a href="https://medium.com/@saiteja313" class="read-more">Read on Medium →</a>
-                    </div>
-                </div>
-                
-                <div class="blog-card" onclick="window.open('https://medium.com/@saiteja313', '_blank')">
-                    <div class="blog-category">Amazon EKS</div>
-                    <div class="b
+                    </div
