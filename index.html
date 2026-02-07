@@ -853,9 +853,7 @@
             </div>
             
             <div class="blog-grid" id="blog-container">
-                <div class="blog-card loading-skeleton" style="height: 300px;"></div>
-                <div class="blog-card loading-skeleton" style="height: 300px;"></div>
-                <div class="blog-card loading-skeleton" style="height: 300px;"></div>
+                <!-- Blog posts load here immediately -->
             </div>
         </div>
     </section>
@@ -919,71 +917,14 @@
             });
         });
 
-        async function fetchMediumPosts() {
+        // Load static blog content immediately - no waiting for API
+        function loadBlogContent() {
             const container = document.getElementById('blog-container');
-            
-            // Set a timeout for the fetch
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
-            
-            try {
-                const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@saiteja313', {
-                    signal: controller.signal
-                });
-                clearTimeout(timeoutId);
-                
-                const data = await response.json();
-                
-                if (data.status === 'ok' && data.items && data.items.length > 0) {
-                    container.innerHTML = '';
-                    const posts = data.items.slice(0, 6);
-                    
-                    posts.forEach(post => {
-                        const card = createBlogCard(post);
-                        container.appendChild(card);
-                    });
-                } else {
-                    throw new Error('No posts returned from API');
-                }
-            } catch (error) {
-                clearTimeout(timeoutId);
-                console.log('Using fallback blog content:', error.message);
-                container.innerHTML = getFallbackBlogContent();
-            }
+            container.innerHTML = getFallbackBlogContent();
         }
-
-        function createBlogCard(post) {
-            const card = document.createElement('div');
-            card.className = 'blog-card';
-            card.onclick = () => window.open(post.link, '_blank');
-            
-            const category = post.categories && post.categories.length > 0 
-                ? post.categories[0] 
-                : 'Technical Article';
-            
-            const date = new Date(post.pubDate);
-            const formattedDate = date.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'short', 
-                day: 'numeric' 
-            });
-            
-            const description = post.description
-                .replace(/<[^>]*>/g, '')
-                .substring(0, 150) + '...';
-            
-            card.innerHTML = `
-                <div class="blog-category">${category}</div>
-                <div class="blog-content">
-                    <div class="blog-date">${formattedDate}</div>
-                    <h3>${post.title}</h3>
-                    <p>${description}</p>
-                    <a href="${post.link}" class="read-more" onclick="event.stopPropagation();">Read on Medium →</a>
-                </div>
-            `;
-            
-            return card;
-        }
+        
+        // Call immediately when page loads
+        document.addEventListener('DOMContentLoaded', loadBlogContent);
 
         function getFallbackBlogContent() {
             return `
