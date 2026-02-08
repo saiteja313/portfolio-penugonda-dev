@@ -364,12 +364,17 @@
             overflow: hidden;
             border: 2px solid var(--border);
             transition: all 0.3s;
+            cursor: pointer;
         }
         
         .project-card:hover {
             border-color: var(--primary);
             transform: translateY(-5px);
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-card:hover .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #E88B00 100%);
         }
         
         .project-card .project-header {
@@ -748,7 +753,7 @@
             </div>
             
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" onclick="window.open('https://github.com/awslabs/data-on-eks', '_blank')" style="cursor: pointer;">
                     <div class="project-header">
                         <h3>Data on EKS</h3>
                         <div class="stars">⭐ 819 GitHub Stars</div>
@@ -764,7 +769,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card" onclick="window.open('https://github.com/saiteja313', '_blank')" style="cursor: pointer;">
                     <div class="project-header">
                         <h3>AWS Re:Invent 2025 Workshop</h3>
                         <div class="stars">🎯 Content Developer</div>
@@ -780,7 +785,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card" onclick="window.open('https://github.com/saiteja313', '_blank')" style="cursor: pointer;">
                     <div class="project-header">
                         <h3>APyC - Python Crawler</h3>
                         <div class="stars">🔧 Open Source</div>
@@ -796,7 +801,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card" onclick="window.open('https://github.com/saiteja313', '_blank')" style="cursor: pointer;">
                     <div class="project-header">
                         <h3>CloudWatch EKS Fargate Metrics</h3>
                         <div class="stars">📊 AWS Integration</div>
@@ -811,7 +816,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card" onclick="window.open('https://github.com/saiteja313', '_blank')" style="cursor: pointer;">
                     <div class="project-header">
                         <h3>AWS AppMesh Training</h3>
                         <div class="stars">📚 Educational</div>
@@ -826,7 +831,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card" onclick="window.open('https://github.com/saiteja313', '_blank')" style="cursor: pointer;">
                     <div class="project-header">
                         <h3>Bedrock AI Micro Agents</h3>
                         <div class="stars">🤖 AI/ML</div>
