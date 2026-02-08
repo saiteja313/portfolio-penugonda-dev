@@ -117,14 +117,14 @@
         .hero-content h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
-            color: white;
+            color: #FFF4E6;
             margin-bottom: 1rem;
             line-height: 1.1;
         }
         
         .hero-content .subtitle {
             font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-            color: rgba(255, 255, 255, 0.9);
+            color: #FFE4C4;
             margin-bottom: 1.5rem;
             font-weight: 300;
         }
@@ -146,7 +146,7 @@
             backdrop-filter: blur(10px);
             padding: 0.75rem 1.5rem;
             border-radius: 50px;
-            color: white;
+            color: #FFF4E6;
             font-weight: 600;
             font-size: 0.9rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -156,29 +156,30 @@
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
-            flex-wrap: wrap;
         }
         
         .btn {
-            padding: 1rem 2rem;
+            padding: 0.875rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             display: inline-block;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
+            white-space: nowrap;
         }
         
         .btn-primary {
-            background: var(--primary);
+            background: white;
             color: var(--secondary);
         }
         
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: var(--primary);
+            color: var(--secondary);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 153, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
         }
         
         .btn-secondary {
@@ -581,8 +582,8 @@
             <div class="hero-content">
                 <h1>Sai Teja Penugonda</h1>
                 <p class="subtitle">Senior Cloud Engineer at <span class="highlight">Amazon Web Services</span></p>
-                <p style="color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; margin-bottom: 1rem;">
-                    Subject Matter Expert in Amazon EKS & EKS Anywhere | Developed Workshop Content for AWS Re:Invent 2025
+                <p style="color: #FFD7B5; font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.5;">
+                    EKS & ECS Subject Matter Expert | AI Workflow Automation | Technical Training & Documentation | Troubleshooting Escalations Leadership
                 </p>
                 
                 <div class="cert-badges">
@@ -595,8 +596,8 @@
                 <div class="cta-buttons">
                     <a href="#certifications" class="btn btn-primary">View Certifications</a>
                     <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#blog" class="btn btn-secondary">Read Blog</a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    <a href="#blog" class="btn btn-primary">Read Blog</a>
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
                 </div>
             </div>
             
@@ -657,37 +658,67 @@
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item aws">
                     <span class="cert-type">AWS Professional</span>
-                    <h3>AWS Certified DevOps Engineer - Professional</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/2d84e428-9078-49b6-a804-13c15383d0de/image.png" 
+                             alt="AWS DevOps Pro Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">AWS Certified DevOps Engineer - Professional</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item aws">
                     <span class="cert-type">AWS Professional</span>
-                    <h3>AWS Solutions Architect - Professional</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/2784d0d8-327c-406f-971e-9f0e15097003/image.png" 
+                             alt="AWS Solutions Architect Pro Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">AWS Solutions Architect - Professional</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item aws">
                     <span class="cert-type">AWS Specialty</span>
-                    <h3>AWS Certified Security - Specialty</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/53acdae5-d69f-4dda-b650-d02ed7a50dd7/image.png" 
+                             alt="AWS Security Specialty Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">AWS Certified Security - Specialty</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item aws">
                     <span class="cert-type">AWS Specialty</span>
-                    <h3>AWS Certified AI Practitioner</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/f8204876-d65f-4018-b3ed-621e853b0b93/image.png" 
+                             alt="AWS AI Practitioner Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">AWS Certified AI Practitioner</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item aws">
                     <span class="cert-type">AWS SME</span>
-                    <h3>Amazon EKS Subject Matter Expert</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/bd31ef42-d460-493e-8503-39592aaf0458/image.png" 
+                             alt="Amazon EKS SME Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">Amazon EKS Subject Matter Expert</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item aws">
                     <span class="cert-type">AWS SME</span>
-                    <h3>Amazon ECS Subject Matter Expert</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" 
+                             alt="Amazon ECS SME Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">Amazon ECS Subject Matter Expert</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
                 
@@ -723,25 +754,45 @@
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item kubernetes">
                     <span class="cert-type">CNCF</span>
-                    <h3>Certified Kubernetes Security Specialist (CKS)</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/9945dfcb-1cca-4529-85e6-db1be3782210/kubernetes-security-specialist-logo2.png" 
+                             alt="CKS Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">Certified Kubernetes Security Specialist (CKS)</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item kubernetes">
                     <span class="cert-type">CNCF</span>
-                    <h3>Certified Kubernetes Administrator (CKA)</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/8b8ed108-e77d-4396-ac59-2504583b9d54/cka_from_cncfsite__281_29.png" 
+                             alt="CKA Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">Certified Kubernetes Administrator (CKA)</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item kubernetes">
                     <span class="cert-type">CNCF</span>
-                    <h3>Certified Kubernetes Application Developer (CKAD)</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/f88d800c-5261-45c6-9515-0458e31c3e16/ckad_from_cncfsite.png" 
+                             alt="CKAD Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">Certified Kubernetes Application Developer (CKAD)</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
                 
                 <a href="https://www.credly.com/users/saiteja313" target="_blank" class="cert-item kubernetes">
                     <span class="cert-type">CNCF</span>
-                    <h3>Kubernetes and Cloud Native Associate (KCNA)</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                        <img src="https://images.credly.com/size/340x340/images/f28f1d88-428a-47f6-95b5-7da1dd6c1000/KCNA_badge.png" 
+                             alt="KCNA Badge" 
+                             style="width: 60px; height: 60px; object-fit: contain;">
+                        <h3 style="margin: 0;">Kubernetes and Cloud Native Associate (KCNA)</h3>
+                    </div>
                     <span class="credly-link">View Badge →</span>
                 </a>
             </div>
