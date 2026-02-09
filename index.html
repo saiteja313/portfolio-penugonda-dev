@@ -597,6 +597,108 @@
         html {
             scroll-behavior: smooth;
         }
+        
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+        
+        .testimonial-text {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #f0f0f0;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-info strong {
+            display: block;
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info .author-title {
+            color: #666;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .linkedin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #0077b5;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .linkedin-link:hover {
+            color: #005885;
+        }
+        
+        .linkedin-link svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -608,6 +710,7 @@
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#blog">Blog</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1107,6 +1210,84 @@
             
             <div class="blog-grid" id="blog-container">
                 <!-- Blog posts load here immediately -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Colleagues Say</h2>
+                <p>Recommendations from professionals I've worked with</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon">❝</div>
+                    <p class="testimonial-text">
+                        I worked with Sai on various cloud development issues where he was the SME. Sai was always helpful and made himself available to help others to ensure tasks and projects were completed. He is always great to work with and wants to make sure you understand the technology you are working with. I look forward to working with him again in the future.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23667eea'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.3em' fill='white' font-size='40' font-family='Arial'%3EDK%3C/text%3E%3C/svg%3E" 
+                             alt="David Kelly">
+                        <div class="author-info">
+                            <strong>David Kelly</strong>
+                            <span class="author-title">Senior DevOps Engineer at Capital One</span>
+                            <a href="https://www.linkedin.com/in/saiteja313/details/recommendations/" target="_blank" class="linkedin-link">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.98h4V24h-4V8.98Zm7.5 0h3.84v2.06h.05c.53-1.01 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V24h-4v-6.93c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.66V24h-4V8.98Z"/>
+                                </svg>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon">❝</div>
+                    <p class="testimonial-text">
+                        Sai worked with me in Capital One for about 2 years. Sai has supported my team with AWS, Docker, Jenkins, CICD, Groovy, Python and many more. He is a quick learner and always eager to stay up to date with new features and enhancements. He has built CICD pipelines for our platform along with suggesting teams to use better practice for Docker and Github. I really want to thanks and appreciate him for all his hard work to make our platform better. Thanks for bringing in positive attitude and energy in the team all the time. Good Luck.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23764ba2'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.3em' fill='white' font-size='40' font-family='Arial'%3EBS%3C/text%3E%3C/svg%3E" 
+                             alt="Bijender Singh">
+                        <div class="author-info">
+                            <strong>Bijender Singh</strong>
+                            <span class="author-title">Enterprise Security Architect | Cloud Architect at Federal Reserve Bank</span>
+                            <a href="https://www.linkedin.com/in/saiteja313/details/recommendations/" target="_blank" class="linkedin-link">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.98h4V24h-4V8.98Zm7.5 0h3.84v2.06h.05c.53-1.01 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V24h-4v-6.93c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.66V24h-4V8.98Z"/>
+                                </svg>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon">❝</div>
+                    <p class="testimonial-text">
+                        I had the pleasure of working with Sai at Capital One implementing Kubernetes for a multi-container Java application. Sai is a very talented engineer with a great personality. He is not only great at learning new things, implementing code, and setting up meetings, he's also a great person to work with. We could use more people like Sai in the industry! Anyone would be very lucky to get the opportunity to work with him.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23146EB4'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.3em' fill='white' font-size='40' font-family='Arial'%3EJC%3C/text%3E%3C/svg%3E" 
+                             alt="Jesse Corson">
+                        <div class="author-info">
+                            <strong>Jesse Corson</strong>
+                            <span class="author-title">Principal Software Engineer</span>
+                            <a href="https://www.linkedin.com/in/saiteja313/details/recommendations/" target="_blank" class="linkedin-link">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.98h4V24h-4V8.98Zm7.5 0h3.84v2.06h.05c.53-1.01 1.84-2.06 3.79-2.06 4.06 0 4.81 2.67 4.81 6.14V24h-4v-6.93c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.66 1.8-2.66 3.66V24h-4V8.98Z"/>
+                                </svg>
+                                View on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
